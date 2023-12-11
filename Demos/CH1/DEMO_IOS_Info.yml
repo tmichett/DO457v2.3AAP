@@ -1,0 +1,20 @@
+---
+- name: Gather and display facts for Cisco Network Devices
+  hosts: ios
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Gather facts using the 'cisco.ios.ios_facts' module
+      cisco.ios.ios_facts:
+      when: ansible_network_os == 'ios'
+
+    - name: Grab info from commands
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show ip int brief
+      register: ios_output
+
+    - name: Show Output
+      debug: 
+        var: ios_output
