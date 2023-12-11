@@ -1,0 +1,25 @@
+---
+- name: Sample playbook
+  hosts: workstation
+  become: true
+  become_user: student
+  gather_facts: false
+  vars:
+    code_settings_file: /home/student/.config/Code/User/settings.json
+  tasks:
+    - name: Check for {{ code_settings_file }}
+      ansible.builtin.stat:
+        path: "{{ code_settings_file }}"
+      register: check_code_settings_file
+
+    - name: Display custom settings block
+      when: check_code_settings_file['stat']['exists']
+      block:
+        - name: Slurp {{ code_settings_file }}
+          ansible.builtin.slurp:
+            path: "{{ code_settings_file }}"
+          register: slurp_settings
+
+        - name: Display {{ code_settings_file }}
+          ansible.builtin.debug:
+            var: slurp_settings['content'] | b64decode
