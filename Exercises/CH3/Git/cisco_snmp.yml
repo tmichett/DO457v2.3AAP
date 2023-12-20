@@ -1,0 +1,39 @@
+---
+- name: Configure SNMP on Cisco IOS XE managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Configure SNMP using the snmp_server resource module
+      cisco.ios.ios_snmp_server:
+        state: merged
+        config:
+          location: 'Raleigh, NC'
+          contact: 'Network Engineering | neteng@company.com'
+          communities:
+            - acl_v4: snmpaclro
+              name: rocommunity2n4g!
+              ro: true
+            - acl_v4: snmpaclrw
+              name: rwcommunityd7g$v
+              rw: true
+          hosts:
+            - community_string: 'm0n1t0r'
+              host: 172.25.1.10
+              informs: true
+              version: 2c
+          traps: 
+            bgp:
+              enable: true
+            eigrp: true
+            hsrp: true
+            ospf:
+              cisco_specific:
+                error: true
+                lsa: true
+                retransmit: true
+            snmp:
+              authentication: true
+              coldstart: true
+              linkdown: true
+              linkup: true
+              warmstart: true
