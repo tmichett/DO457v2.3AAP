@@ -1,0 +1,27 @@
+---
+- name: Backup IOS XE configurations
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Backup IOS XE configurations
+      cisco.ios.ios_config:
+        backup: true
+        backup_options:
+          dir_path: /home/student/implement-plays
+          filename: "{{ inventory_hostname }}.txt"
+- name: Backup Juniper Junos configurations
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Enable the netconf service on port 830
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        netconf_port: 830
+        state: present
+    - name: Backup Junos configurations
+      junipernetworks.junos.junos_config:
+        backup: true
+        backup_options:
+          dir_path: /home/student/implement-plays
+          filename: "{{ inventory_hostname }}.txt"
