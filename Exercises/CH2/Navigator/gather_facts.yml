@@ -1,0 +1,13 @@
+---
+- name: Gather and display facts
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Gather facts using the 'cisco.ios.ios_facts' module
+      cisco.ios.ios_facts:
+      when: ansible_network_os == 'ios'
+
+    - name: Display ansible_facts
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname]['ansible_facts']
