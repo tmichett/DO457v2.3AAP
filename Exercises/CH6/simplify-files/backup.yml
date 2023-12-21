@@ -1,0 +1,16 @@
+---
+- name: Back up all managed network nodes
+  hosts:
+    - junos
+    - ios
+  gather_facts: false
+  tasks:
+    - name: Juniper Junos block
+      when: ansible_network_os == 'junipernetworks.junos.junos'
+      block:
+        - name: Enable NETCONF
+          ansible.builtin.include_tasks: tasks/junos_netconf_enable.yml
+        - name: Create Junos backup files
+          ansible.builtin.include_tasks: tasks/junos_backup_create.yml
+
+          

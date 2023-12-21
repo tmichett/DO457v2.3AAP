@@ -1,0 +1,7 @@
+---
+- name: Enable NETCONF service
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+  junipernetworks.junos.junos_netconf:
+    netconf_port: 830
+    state: present
