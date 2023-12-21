@@ -1,0 +1,14 @@
+---
+- name: Verify NTP configuration
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Verifying NTP configuration
+      cisco.ios.ios_command:
+        commands:
+          - show run | include ntp
+      register: ios_ntp
+
+    - name: Display NTP configuration
+      ansible.builtin.debug:
+        var: ios_ntp['stdout_lines'][0]

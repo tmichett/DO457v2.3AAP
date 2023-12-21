@@ -1,0 +1,32 @@
+set version 23.1R1.8
+set system host-name junos1.lab.example.com
+set system root-authentication encrypted-password "$6$5TiPJaqE$929rhpem1O3HigTCPHZTuyg4wV.IeFK2ZFWBOQG9syw.AS50/FEHTiXmzJ1sB5ZPppRKXilY8.gXQW4e8z.yP."
+set system login user student uid 2000
+set system login user student class super-user
+set system login user student authentication encrypted-password "$6$uhrNkhjY$uxTi.jfRyZ9dKSxiF5zAJnR3BZtj7GY571tUXf8/tKmAQMM6M5NjT00Dq/uowMKtQkXvQgjgVHKRkh4NsIKkb/"
+set system login user student authentication ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGtUW3ismHyuCW4CDdTVOOOq6aySdtYenXFWWx7HJa4VTepkG00aaLId9ocra10hc+MB0GTJMCyabDv3i8NKdi6GDH/aOLVsp/Ewy8DEzZMBlJDCt4v2i4/wU4liw6KgEFkZs+5hnqU8d4QzldyGJ5onr+AGvFOKG68CS0BBl40Z1twf1HhCyx8k6nzD2ovlkxWRFZKPAFrtPCBVvQDkOfVFZF+lwzaSztgAjbFZ4A9jqQyUYx4kOJ5DtRef36ucdUdVQale0+8lICl7/gb142SPpYfhxe88/BJScLPRjvVNeu1TxRmoHtVazqnAoRxQYAn2MoI6AG+w6QuZf8f7aL LabGradingKey"
+set system services ssh root-login allow
+set system services netconf ssh port 830
+set system domain-search lab.example.com
+set system domain-search example.com
+set system name-server 172.25.250.220
+set system syslog file interactive-commands interactive-commands any
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system processes dhcp-service traceoptions file dhcp_logfile
+set system processes dhcp-service traceoptions file size 10m
+set system processes dhcp-service traceoptions level all
+set system processes dhcp-service traceoptions flag packet
+set system ntp server 172.25.23.240
+set system ntp server 172.25.23.230
+set interfaces fxp0 unit 0 family inet address 172.25.250.22/24
+set interfaces fxp0 unit 0 family inet6 dhcpv6-client client-type stateful
+set interfaces fxp0 unit 0 family inet6 dhcpv6-client client-ia-type ia-na
+set interfaces fxp0 unit 0 family inet6 dhcpv6-client client-identifier duid-type duid-ll
+set interfaces fxp0 unit 0 family inet6 dhcpv6-client vendor-id Juniper:vmx:VM646555B74D
+set snmp location "Raleigh, NC"
+set snmp contact "Network Engineering | neteng@company.com"
+set snmp community "rocommunity2n4g!" authorization read-only
+set snmp community "rwcommunityd7g$v" authorization read-write
+set routing-options static route 0.0.0.0/0 next-hop 172.25.250.254
+set protocols router-advertisement interface fxp0.0 managed-configuration

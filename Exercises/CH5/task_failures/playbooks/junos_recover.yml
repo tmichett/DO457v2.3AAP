@@ -1,0 +1,22 @@
+---
+- name: Recover backed up configuration
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Enable the netconf service on port 830
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        listens_on: 830
+        state: present
+
+    - name: Remove all existing NTP configuration
+      junipernetworks.junos.junos_ntp_global:
+        config:
+        state: deleted
+      ignore_errors: true
+
+    - name: Restore the Juniper Junos configurations
+      junipernetworks.junos.junos_config:
+        src: "../{{ inventory_hostname }}.txt"
+        comment: Restore config

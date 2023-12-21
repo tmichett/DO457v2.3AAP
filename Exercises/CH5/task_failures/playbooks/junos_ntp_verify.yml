@@ -1,0 +1,21 @@
+---
+- name: Verify NTP configuration
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Enable netconf service on port 830
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        netconf_port: 830
+        state: present
+
+    - name: Verifying NTP configuration
+      junipernetworks.junos.junos_command:
+        commands:
+          - show configuration system ntp
+      register: junos_ntp
+
+    - name: Display NTP configuration
+      ansible.builtin.debug:
+        var: junos_ntp['stdout_lines'][0]

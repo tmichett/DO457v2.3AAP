@@ -1,0 +1,13 @@
+---
+- name: Recover backed up configuration
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Remove all existing configuration
+      cisco.ios.ios_ntp_global:
+        state: deleted
+      ignore_errors: true
+
+    - name: Restore the IOS configurations
+      cisco.ios.ios_config:
+        src: "../{{ inventory_hostname }}.txt"

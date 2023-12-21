@@ -1,0 +1,26 @@
+---
+- name: Backup the configurations on managed nodes
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Enable the NETCONF service
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        listens_on: 830
+        state: present
+      when: ansible_network_os == "junipernetworks.junos.junos"
+
+    - name: Back up the Juniper Junos configurations
+      junipernetworks.junos.junos_config:
+        backup: true
+        backup_options:
+          filename: "{{ inventory_hostname }}.txt"
+      when: ansible_network_os == "junipernetworks.junos.junos"
+
+    - name: Back up the IOS configurations
+      cisco.ios.ios_config:
+        backup: true
+        backup_options:
+          filename: "{{ inventory_hostname }}.txt"
+      when: ansible_network_os == "cisco.ios.ios"
