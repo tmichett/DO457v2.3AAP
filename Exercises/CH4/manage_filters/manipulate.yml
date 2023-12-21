@@ -1,0 +1,37 @@
+---
+# Sample commands:
+# ansible-navigator run manipulate.yml -e option=address
+# ansible-navigator run manipulate.yml -e option=netmask
+# ansible-navigator run manipulate.yml -e option=prefix
+# ansible-navigator run manipulate.yml -e option=revdns
+# ansible-navigator run manipulate.yml -e option=network
+# ansible-navigator run manipulate.yml -e option=broadcast
+- name: Tasks for the "Manipulating IP Addresses" section of the lecture
+  hosts: localhost
+  gather_facts: false
+  vars:
+    sample_address: 192.0.2.1/24
+    possible_options:
+      - address   # Return the address without a subnet mask or prefix
+      - netmask   # Return the variable length subnet mask for the address
+      - prefix    # Return the CIDR prefix for the address
+      - revdns    # Return the DNS pointer record for the address
+      - network   # Return the network address for the network
+      - broadcast # Return the broadcast address for the network
+  tasks:
+    - name: Fail if the 'option' variable is not defined or is invalid
+      ansible.builtin.assert:
+        that:
+          - option is defined
+          - option in possible_options
+        fail_msg: >-
+          The 'option' variable must be defined and have one of the following
+          values {{ possible_options }}.
+
+    - name: Display the 'sample_address' variable
+      ansible.builtin.debug:
+        var: sample_address
+
+    - name: Use the "ansible.utils.ipaddr('{{ option }}')" filter expression
+      ansible.builtin.debug:
+        var: sample_address | ansible.utils.ipaddr(option)

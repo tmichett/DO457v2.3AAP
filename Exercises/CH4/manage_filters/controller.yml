@@ -1,0 +1,20 @@
+---
+- name: Query automation controller API
+  hosts: controller.lab.example.com
+  gather_facts: false
+  tasks:
+    - name: Include controller_auth.yml
+      ansible.builtin.include_vars: vars/controller_auth.yml
+
+    - name: Query for credentials
+      ansible.builtin.uri:
+        url: https://{{ controller['host'] }}/api/v2/credentials/
+        method: GET
+        headers:
+          Authorization: >-
+            Basic {{ controller['username_password'] | string | b64encode }}
+      register: query_credentials
+
+    - name: Show query results
+      ansible.builtin.debug:
+        var: query_credentials['json']['results'] | map(attribute='name')

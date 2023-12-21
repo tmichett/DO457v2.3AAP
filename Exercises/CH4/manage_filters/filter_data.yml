@@ -1,0 +1,42 @@
+---
+# Sample commands:
+# ansible-navigator run filter_data.yml -e option=host
+# ansible-navigator run filter_data.yml -e option=net
+# ansible-navigator run filter_data.yml -e option=private
+# ansible-navigator run filter_data.yml -e option=public
+- name: Play for the "Filtering Data" section of the lecture
+  hosts: localhost
+  gather_facts: false
+  vars:
+    samples:
+      - 192.168.2.1
+      - 10.0.0.128/25
+      - 172.24.10.0/255.255.255.0
+      - 172.24.10.0/255.255.255.255
+      - ff02::1
+      - ::1
+      - 2001::1/64
+      - 2001::/64
+      - www.redhat.com
+    possible_options:
+      - host    # Return valid hosts and use a CIDR prefix
+      - net     # Return valid networks and use a CIDR prefix
+      - private # Return hosts and networks in the private range of addresses
+      - public  # Return hosts and networks in the public range of addresses
+  tasks:
+    - name: Fail if the 'option' variable is not defined or is invalid
+      ansible.builtin.assert:
+        that:
+          - option is defined
+          - option in possible_options
+        fail_msg: >-
+          The 'option' variable must be defined and have one of the following
+          values {{ possible_options }}.
+
+    - name: Display the 'samples' variable
+      ansible.builtin.debug:
+        var: samples
+
+    - name: Use the "ansible.utils.ipaddr('{{ option }}')" filter expression
+      ansible.builtin.debug:
+        var: samples | ansible.utils.ipaddr(option)

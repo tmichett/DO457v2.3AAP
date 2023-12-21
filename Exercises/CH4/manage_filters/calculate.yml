@@ -1,0 +1,47 @@
+---
+# Sample commands:
+# ansible-navigator run calculate.yml -e option=20
+# ansible-navigator run calculate.yml -e option=range_usable
+# ansible-navigator run calculate.yml -e option=next_usable
+- name: >-
+    Tasks for the "Calculating, Validating, and Reformatting Network
+    Information" section of the lecture
+  hosts: localhost
+  gather_facts: false
+  vars:
+    sample_network: 192.0.2.0/24
+    sample_address: 192.0.2.5/24
+  tasks:
+    - name: Fail if the 'option' variable is not defined or is invalid
+      ansible.builtin.assert:
+        that:
+          - option is defined
+          - (option | int) or (option == 'range_usable') or (option == 'next_usable')
+        fail_msg: >-
+          The 'option' variable must be defined and must have the value of an
+          integer, 'range_usable', or 'next_usable'.
+
+    - name: Display the 'sample_network' variable
+      when:
+        - (option | int) or (option == 'range_usable')
+        - option != 'next_usable'
+      ansible.builtin.debug:
+        var: sample_network
+
+    - name: Use the "ansible.utils.ipaddr('{{ option }}')" filter expression
+      when:
+        - (option | int) or (option == 'range_usable')
+        - option != 'next_usable'
+      ansible.builtin.debug:
+        var: sample_network | ansible.utils.ipaddr(option)
+
+    - name: Display the 'sample_address' variable
+      when: option == 'next_usable'
+      ansible.builtin.debug:
+        var: sample_address
+
+    - name: Use the "ansible.utils.ipaddr('next_usable')" filter expression
+      when: option == 'next_usable'
+      ansible.builtin.debug:
+        var: >-
+          sample_address | ansible.utils.ipaddr('next_usable')
