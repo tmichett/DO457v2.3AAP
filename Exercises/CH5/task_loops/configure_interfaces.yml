@@ -1,0 +1,54 @@
+---
+- name: Configure Cisco IOS interfaces
+  hosts: ios
+  gather_facts: false
+
+  tasks:
+
+    - name: Gather interface facts (pre)
+      cisco.ios.ios_facts:
+        gather_subset:
+          - interfaces
+
+    - name: Show ansible_facts['net_interfaces'] (pre)
+      ansible.builtin.debug:
+        var: ansible_facts['net_interfaces']
+
+    - name: Configure basic interface information
+      when:
+        - interfaces is defined
+        - interfaces[inventory_hostname] is defined
+      cisco.ios.ios_interfaces:
+        config:
+          - name: "{{ item['name'] }}"
+            description: "{{ item['description'] | default(omit) }}"
+            enabled: "{{ item['enabled'] | default(false) }}"
+        state: merged
+      loop: "{{ interfaces[inventory_hostname] }}"
+
+    - name: Configure L3 interface information
+      when:
+        - interfaces is defined
+        - interfaces[inventory_hostname] is defined
+        - item['ipv4'] is defined
+      cisco.ios.ios_l3_interfaces:
+        config:
+          - name: "{{ item['name'] }}"
+            ipv4:
+              - address: "{{ item['ipv4'] }}"
+        state: merged
+      loop: "{{ interfaces[inventory_hostname] }}"
+
+    - name: Pause 5 seconds
+      ansible.builtin.pause:
+        seconds: 5
+      run_once: true
+
+    - name: Gather interface facts (post)
+      cisco.ios.ios_facts:
+        gather_subset:
+          - interfaces
+
+    - name: Show ansible_facts['net_interfaces'] (post)
+      ansible.builtin.debug:
+        var: ansible_facts['net_interfaces']

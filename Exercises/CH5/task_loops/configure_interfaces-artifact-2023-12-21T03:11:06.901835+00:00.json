@@ -1,0 +1,1865 @@
+{
+    "plays": [
+        {
+            "__play_name": "Configure Cisco IOS interfaces",
+            "name": "Configure Cisco IOS interfaces",
+            "pattern": "ios",
+            "play": "Configure Cisco IOS interfaces",
+            "play_pattern": "ios",
+            "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+            "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+            "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "3s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 0,
+                    "__result": "Ok",
+                    "__task": "Gather interface facts (pre)",
+                    "__task_action": "cisco.ios.ios_facts",
+                    "duration": 2.841214,
+                    "end": "2023-12-21T03:10:50.673540",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "ansible_net_all_ipv4_addresses": [
+                                "172.25.250.20"
+                            ],
+                            "ansible_net_all_ipv6_addresses": [],
+                            "ansible_net_api": "cliconf",
+                            "ansible_net_gather_network_resources": [],
+                            "ansible_net_gather_subset": [
+                                "interfaces",
+                                "default"
+                            ],
+                            "ansible_net_hostname": "iosxe1.lab.example.com",
+                            "ansible_net_image": "bootflash:packages.conf",
+                            "ansible_net_interfaces": {
+                                "GigabitEthernet1": {
+                                    "bandwidth": 1000000,
+                                    "description": null,
+                                    "duplex": "Full",
+                                    "ipv4": [
+                                        {
+                                            "address": "172.25.250.20",
+                                            "subnet": "24"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": "5254.0000.fa14",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "up",
+                                    "type": "vNIC"
+                                },
+                                "GigabitEthernet2": {
+                                    "bandwidth": 1000000,
+                                    "description": null,
+                                    "duplex": "Full",
+                                    "ipv4": [],
+                                    "lineprotocol": "down",
+                                    "macaddress": "5254.0001.c814",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "administratively down",
+                                    "type": "vNIC"
+                                }
+                            },
+                            "ansible_net_iostype": "IOS-XE",
+                            "ansible_net_model": "C8000V",
+                            "ansible_net_neighbors": {},
+                            "ansible_net_operatingmode": "autonomous",
+                            "ansible_net_python_version": "3.9.13",
+                            "ansible_net_serialnum": "9G224J67956",
+                            "ansible_net_system": "ios",
+                            "ansible_net_version": "17.06.02",
+                            "ansible_network_resources": {}
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "available_network_resources": false,
+                                "gather_network_resources": null,
+                                "gather_subset": [
+                                    "interfaces"
+                                ]
+                            }
+                        }
+                    },
+                    "resolved_action": "cisco.ios.ios",
+                    "start": "2023-12-21T03:10:47.832326",
+                    "task": "Gather interface facts (pre)",
+                    "task_action": "cisco.ios.ios_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:8",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000005",
+                    "uuid": "cb2bc985-78b4-4c79-871b-27ec9b7c3c0c"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "3s",
+                    "__host": "iosxe2.lab.example.com",
+                    "__number": 1,
+                    "__result": "Ok",
+                    "__task": "Gather interface facts (pre)",
+                    "__task_action": "cisco.ios.ios_facts",
+                    "duration": 2.833495,
+                    "end": "2023-12-21T03:10:50.677672",
+                    "event_loop": null,
+                    "host": "iosxe2.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe2.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "ansible_net_all_ipv4_addresses": [
+                                "172.25.250.21"
+                            ],
+                            "ansible_net_all_ipv6_addresses": [],
+                            "ansible_net_api": "cliconf",
+                            "ansible_net_gather_network_resources": [],
+                            "ansible_net_gather_subset": [
+                                "interfaces",
+                                "default"
+                            ],
+                            "ansible_net_hostname": "iosxe2.lab.example.com",
+                            "ansible_net_image": "bootflash:packages.conf",
+                            "ansible_net_interfaces": {
+                                "GigabitEthernet1": {
+                                    "bandwidth": 1000000,
+                                    "description": null,
+                                    "duplex": "Full",
+                                    "ipv4": [
+                                        {
+                                            "address": "172.25.250.21",
+                                            "subnet": "24"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": "5254.0000.fa15",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "up",
+                                    "type": "vNIC"
+                                },
+                                "GigabitEthernet2": {
+                                    "bandwidth": 1000000,
+                                    "description": null,
+                                    "duplex": "Full",
+                                    "ipv4": [],
+                                    "lineprotocol": "down",
+                                    "macaddress": "5254.0001.c815",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "administratively down",
+                                    "type": "vNIC"
+                                }
+                            },
+                            "ansible_net_iostype": "IOS-XE",
+                            "ansible_net_model": "C8000V",
+                            "ansible_net_neighbors": {},
+                            "ansible_net_operatingmode": "autonomous",
+                            "ansible_net_python_version": "3.9.13",
+                            "ansible_net_serialnum": "9I2RFK6YTRO",
+                            "ansible_net_system": "ios",
+                            "ansible_net_version": "17.06.02",
+                            "ansible_network_resources": {}
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "available_network_resources": false,
+                                "gather_network_resources": null,
+                                "gather_subset": [
+                                    "interfaces"
+                                ]
+                            }
+                        }
+                    },
+                    "resolved_action": "cisco.ios.ios",
+                    "start": "2023-12-21T03:10:47.844177",
+                    "task": "Gather interface facts (pre)",
+                    "task_action": "cisco.ios.ios_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:8",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000005",
+                    "uuid": "8b0bb189-0efd-4d28-aebb-d4bf5362ef80"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 2,
+                    "__result": "Ok",
+                    "__task": "Show ansible_facts['net_interfaces'] (pre)",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.723092,
+                    "end": "2023-12-21T03:10:51.406618",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "ansible_facts['net_interfaces']": {
+                            "GigabitEthernet1": {
+                                "bandwidth": 1000000,
+                                "description": null,
+                                "duplex": "Full",
+                                "ipv4": [
+                                    {
+                                        "address": "172.25.250.20",
+                                        "subnet": "24"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": "5254.0000.fa14",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "up",
+                                "type": "vNIC"
+                            },
+                            "GigabitEthernet2": {
+                                "bandwidth": 1000000,
+                                "description": null,
+                                "duplex": "Full",
+                                "ipv4": [],
+                                "lineprotocol": "down",
+                                "macaddress": "5254.0001.c814",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "administratively down",
+                                "type": "vNIC"
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2023-12-21T03:10:50.683526",
+                    "task": "Show ansible_facts['net_interfaces'] (pre)",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:13",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000006",
+                    "uuid": "bfc32bf2-fd28-49a6-ae15-25030f78d0b8"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "iosxe2.lab.example.com",
+                    "__number": 3,
+                    "__result": "Ok",
+                    "__task": "Show ansible_facts['net_interfaces'] (pre)",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.636792,
+                    "end": "2023-12-21T03:10:51.329804",
+                    "event_loop": null,
+                    "host": "iosxe2.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe2.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "ansible_facts['net_interfaces']": {
+                            "GigabitEthernet1": {
+                                "bandwidth": 1000000,
+                                "description": null,
+                                "duplex": "Full",
+                                "ipv4": [
+                                    {
+                                        "address": "172.25.250.21",
+                                        "subnet": "24"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": "5254.0000.fa15",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "up",
+                                "type": "vNIC"
+                            },
+                            "GigabitEthernet2": {
+                                "bandwidth": 1000000,
+                                "description": null,
+                                "duplex": "Full",
+                                "ipv4": [],
+                                "lineprotocol": "down",
+                                "macaddress": "5254.0001.c815",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "administratively down",
+                                "type": "vNIC"
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2023-12-21T03:10:50.693012",
+                    "task": "Show ansible_facts['net_interfaces'] (pre)",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:13",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000006",
+                    "uuid": "d8f40f5d-7a63-4723-a26b-3d4ba48e2020"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "3s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 4,
+                    "__result": "Ok",
+                    "__task": "Configure basic interface information",
+                    "__task_action": "cisco.ios.ios_interfaces",
+                    "duration": 3.324032,
+                    "end": "2023-12-21T03:10:54.736933",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "changed": true,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.10.10/32",
+                                    "name": "Loopback0"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "enabled": false,
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "enabled": false,
+                                        "name": "GigabitEthernet2"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface loopback0",
+                                    "description Managed by Ansible",
+                                    "no shutdown"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "description": "Managed by Ansible",
+                                                "duplex": null,
+                                                "enabled": true,
+                                                "mode": null,
+                                                "mtu": null,
+                                                "name": "Loopback0",
+                                                "speed": null
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.10.10/32",
+                                    "name": "Loopback0"
+                                }
+                            },
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.20/24",
+                                    "name": "GigabitEthernet2"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "enabled": false,
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface GigabitEthernet2",
+                                    "description Managed by Ansible",
+                                    "no shutdown"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "description": "Managed by Ansible",
+                                                "duplex": null,
+                                                "enabled": true,
+                                                "mode": null,
+                                                "mtu": null,
+                                                "name": "GigabitEthernet2",
+                                                "speed": null
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.20/24",
+                                    "name": "GigabitEthernet2"
+                                }
+                            }
+                        ]
+                    },
+                    "resolved_action": "cisco.ios.ios_interfaces",
+                    "start": "2023-12-21T03:10:51.412901",
+                    "task": "Configure basic interface information",
+                    "task_action": "cisco.ios.ios_interfaces",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:17",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000007",
+                    "uuid": "f3d17936-37e6-495c-bd62-4508087709ae"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "3s",
+                    "__host": "iosxe2.lab.example.com",
+                    "__number": 5,
+                    "__result": "Ok",
+                    "__task": "Configure basic interface information",
+                    "__task_action": "cisco.ios.ios_interfaces",
+                    "duration": 3.441037,
+                    "end": "2023-12-21T03:10:54.863594",
+                    "event_loop": null,
+                    "host": "iosxe2.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe2.lab.example.com",
+                    "res": {
+                        "changed": true,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.20.10/32",
+                                    "name": "Loopback0"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "enabled": false,
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "enabled": false,
+                                        "name": "GigabitEthernet2"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface loopback0",
+                                    "description Managed by Ansible",
+                                    "no shutdown"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "description": "Managed by Ansible",
+                                                "duplex": null,
+                                                "enabled": true,
+                                                "mode": null,
+                                                "mtu": null,
+                                                "name": "Loopback0",
+                                                "speed": null
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.20.10/32",
+                                    "name": "Loopback0"
+                                }
+                            },
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.21/24",
+                                    "name": "GigabitEthernet2"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "enabled": true,
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "enabled": false,
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "description": "Managed by Ansible",
+                                        "enabled": true,
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface GigabitEthernet2",
+                                    "description Managed by Ansible",
+                                    "no shutdown"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "description": "Managed by Ansible",
+                                                "duplex": null,
+                                                "enabled": true,
+                                                "mode": null,
+                                                "mtu": null,
+                                                "name": "GigabitEthernet2",
+                                                "speed": null
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.21/24",
+                                    "name": "GigabitEthernet2"
+                                }
+                            }
+                        ]
+                    },
+                    "resolved_action": "cisco.ios.ios_interfaces",
+                    "start": "2023-12-21T03:10:51.422557",
+                    "task": "Configure basic interface information",
+                    "task_action": "cisco.ios.ios_interfaces",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:17",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000007",
+                    "uuid": "73c769c7-33a7-456a-bf40-e21269c62670"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "3s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 6,
+                    "__result": "Ok",
+                    "__task": "Configure L3 interface information",
+                    "__task_action": "cisco.ios.ios_l3_interfaces",
+                    "duration": 3.089552,
+                    "end": "2023-12-21T03:10:57.959119",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "changed": true,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.10.10/32",
+                                    "name": "Loopback0"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.20/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "10.10.10.10/32"
+                                            }
+                                        ],
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.20/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface loopback0",
+                                    "ip address 10.10.10.10 255.255.255.255"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "ipv4": [
+                                                    {
+                                                        "address": "10.10.10.10/32",
+                                                        "dhcp": null,
+                                                        "dhcp_client": null,
+                                                        "dhcp_hostname": null,
+                                                        "pool": null,
+                                                        "secondary": null
+                                                    }
+                                                ],
+                                                "ipv6": null,
+                                                "name": "Loopback0"
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.10.10/32",
+                                    "name": "Loopback0"
+                                }
+                            },
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.20/24",
+                                    "name": "GigabitEthernet2"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.20/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.150.20/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "10.10.10.10/32"
+                                            }
+                                        ],
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.20/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "10.10.10.10/32"
+                                            }
+                                        ],
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface GigabitEthernet2",
+                                    "ip address 172.25.150.20 255.255.255.0"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "ipv4": [
+                                                    {
+                                                        "address": "172.25.150.20/24",
+                                                        "dhcp": null,
+                                                        "dhcp_client": null,
+                                                        "dhcp_hostname": null,
+                                                        "pool": null,
+                                                        "secondary": null
+                                                    }
+                                                ],
+                                                "ipv6": null,
+                                                "name": "GigabitEthernet2"
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.20/24",
+                                    "name": "GigabitEthernet2"
+                                }
+                            }
+                        ]
+                    },
+                    "resolved_action": "cisco.ios.ios_l3_interfaces",
+                    "start": "2023-12-21T03:10:54.869567",
+                    "task": "Configure L3 interface information",
+                    "task_action": "cisco.ios.ios_l3_interfaces",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:29",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000008",
+                    "uuid": "303fb027-3c48-41b5-b698-0dba0d0f3c40"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "3s",
+                    "__host": "iosxe2.lab.example.com",
+                    "__number": 7,
+                    "__result": "Ok",
+                    "__task": "Configure L3 interface information",
+                    "__task_action": "cisco.ios.ios_l3_interfaces",
+                    "duration": 3.214326,
+                    "end": "2023-12-21T03:10:58.093338",
+                    "event_loop": null,
+                    "host": "iosxe2.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe2.lab.example.com",
+                    "res": {
+                        "changed": true,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.20.10/32",
+                                    "name": "Loopback0"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.21/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "10.10.20.10/32"
+                                            }
+                                        ],
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.21/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface loopback0",
+                                    "ip address 10.10.20.10 255.255.255.255"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "ipv4": [
+                                                    {
+                                                        "address": "10.10.20.10/32",
+                                                        "dhcp": null,
+                                                        "dhcp_client": null,
+                                                        "dhcp_hostname": null,
+                                                        "pool": null,
+                                                        "secondary": null
+                                                    }
+                                                ],
+                                                "ipv6": null,
+                                                "name": "Loopback0"
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "10.10.20.10/32",
+                                    "name": "Loopback0"
+                                }
+                            },
+                            {
+                                "_ansible_item_label": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.21/24",
+                                    "name": "GigabitEthernet2"
+                                },
+                                "_ansible_no_log": null,
+                                "after": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.21/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.150.21/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "10.10.20.10/32"
+                                            }
+                                        ],
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "ansible_loop_var": "item",
+                                "before": [
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "172.25.250.21/24"
+                                            }
+                                        ],
+                                        "name": "GigabitEthernet1"
+                                    },
+                                    {
+                                        "name": "GigabitEthernet2"
+                                    },
+                                    {
+                                        "ipv4": [
+                                            {
+                                                "address": "10.10.20.10/32"
+                                            }
+                                        ],
+                                        "name": "Loopback0"
+                                    }
+                                ],
+                                "changed": true,
+                                "commands": [
+                                    "interface GigabitEthernet2",
+                                    "ip address 172.25.150.21 255.255.255.0"
+                                ],
+                                "failed": false,
+                                "invocation": {
+                                    "module_args": {
+                                        "config": [
+                                            {
+                                                "ipv4": [
+                                                    {
+                                                        "address": "172.25.150.21/24",
+                                                        "dhcp": null,
+                                                        "dhcp_client": null,
+                                                        "dhcp_hostname": null,
+                                                        "pool": null,
+                                                        "secondary": null
+                                                    }
+                                                ],
+                                                "ipv6": null,
+                                                "name": "GigabitEthernet2"
+                                            }
+                                        ],
+                                        "running_config": null,
+                                        "state": "merged"
+                                    }
+                                },
+                                "item": {
+                                    "description": "Managed by Ansible",
+                                    "enabled": true,
+                                    "ipv4": "172.25.150.21/24",
+                                    "name": "GigabitEthernet2"
+                                }
+                            }
+                        ]
+                    },
+                    "resolved_action": "cisco.ios.ios_l3_interfaces",
+                    "start": "2023-12-21T03:10:54.879012",
+                    "task": "Configure L3 interface information",
+                    "task_action": "cisco.ios.ios_l3_interfaces",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:29",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000008",
+                    "uuid": "625f6836-3928-460a-af35-31ece265f3f8"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "6s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 8,
+                    "__result": "Ok",
+                    "__task": "Pause 5 seconds",
+                    "__task_action": "ansible.builtin.pause",
+                    "duration": 5.640156,
+                    "end": "2023-12-21T03:11:03.742069",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "changed": false,
+                        "delta": 5,
+                        "echo": true,
+                        "rc": 0,
+                        "start": "2023-12-21 03:10:58.737334",
+                        "stderr": "",
+                        "stdout": "Paused for 5.0 seconds",
+                        "stop": "2023-12-21 03:11:03.737608",
+                        "user_input": ""
+                    },
+                    "resolved_action": "ansible.builtin.pause",
+                    "start": "2023-12-21T03:10:58.101913",
+                    "task": "Pause 5 seconds",
+                    "task_action": "ansible.builtin.pause",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:42",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-000000000009",
+                    "uuid": "57a6b924-ebf1-4383-a8a6-4be0b229ce37"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "2s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 9,
+                    "__result": "Ok",
+                    "__task": "Gather interface facts (post)",
+                    "__task_action": "cisco.ios.ios_facts",
+                    "duration": 1.807863,
+                    "end": "2023-12-21T03:11:05.555711",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "ansible_net_all_ipv4_addresses": [
+                                "172.25.250.20",
+                                "172.25.150.20",
+                                "10.10.10.10"
+                            ],
+                            "ansible_net_all_ipv6_addresses": [],
+                            "ansible_net_api": "cliconf",
+                            "ansible_net_gather_network_resources": [],
+                            "ansible_net_gather_subset": [
+                                "interfaces",
+                                "default"
+                            ],
+                            "ansible_net_hostname": "iosxe1.lab.example.com",
+                            "ansible_net_image": "bootflash:packages.conf",
+                            "ansible_net_interfaces": {
+                                "GigabitEthernet1": {
+                                    "bandwidth": 1000000,
+                                    "description": null,
+                                    "duplex": "Full",
+                                    "ipv4": [
+                                        {
+                                            "address": "172.25.250.20",
+                                            "subnet": "24"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": "5254.0000.fa14",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "up",
+                                    "type": "vNIC"
+                                },
+                                "GigabitEthernet2": {
+                                    "bandwidth": 1000000,
+                                    "description": "Managed by Ansible",
+                                    "duplex": "Full",
+                                    "ipv4": [
+                                        {
+                                            "address": "172.25.150.20",
+                                            "subnet": "24"
+                                        }
+                                    ],
+                                    "lineprotocol": "down",
+                                    "macaddress": "5254.0001.c814",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "down",
+                                    "type": "vNIC"
+                                },
+                                "Loopback0": {
+                                    "bandwidth": 8000000,
+                                    "description": "Managed by Ansible",
+                                    "duplex": null,
+                                    "ipv4": [
+                                        {
+                                            "address": "10.10.10.10",
+                                            "subnet": "32"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": null,
+                                    "mediatype": null,
+                                    "mtu": 1514,
+                                    "operstatus": "up",
+                                    "type": null
+                                }
+                            },
+                            "ansible_net_iostype": "IOS-XE",
+                            "ansible_net_model": "C8000V",
+                            "ansible_net_neighbors": {},
+                            "ansible_net_operatingmode": "autonomous",
+                            "ansible_net_python_version": "3.9.13",
+                            "ansible_net_serialnum": "9G224J67956",
+                            "ansible_net_system": "ios",
+                            "ansible_net_version": "17.06.02",
+                            "ansible_network_resources": {}
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "available_network_resources": false,
+                                "gather_network_resources": null,
+                                "gather_subset": [
+                                    "interfaces"
+                                ]
+                            }
+                        }
+                    },
+                    "resolved_action": "cisco.ios.ios",
+                    "start": "2023-12-21T03:11:03.747848",
+                    "task": "Gather interface facts (post)",
+                    "task_action": "cisco.ios.ios_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:47",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-00000000000a",
+                    "uuid": "db6c8049-dfbb-4290-919b-89721b19f6a0"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "2s",
+                    "__host": "iosxe2.lab.example.com",
+                    "__number": 10,
+                    "__result": "Ok",
+                    "__task": "Gather interface facts (post)",
+                    "__task_action": "cisco.ios.ios_facts",
+                    "duration": 1.83191,
+                    "end": "2023-12-21T03:11:05.589788",
+                    "event_loop": null,
+                    "host": "iosxe2.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe2.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "ansible_net_all_ipv4_addresses": [
+                                "172.25.250.21",
+                                "172.25.150.21",
+                                "10.10.20.10"
+                            ],
+                            "ansible_net_all_ipv6_addresses": [],
+                            "ansible_net_api": "cliconf",
+                            "ansible_net_gather_network_resources": [],
+                            "ansible_net_gather_subset": [
+                                "interfaces",
+                                "default"
+                            ],
+                            "ansible_net_hostname": "iosxe2.lab.example.com",
+                            "ansible_net_image": "bootflash:packages.conf",
+                            "ansible_net_interfaces": {
+                                "GigabitEthernet1": {
+                                    "bandwidth": 1000000,
+                                    "description": null,
+                                    "duplex": "Full",
+                                    "ipv4": [
+                                        {
+                                            "address": "172.25.250.21",
+                                            "subnet": "24"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": "5254.0000.fa15",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "up",
+                                    "type": "vNIC"
+                                },
+                                "GigabitEthernet2": {
+                                    "bandwidth": 1000000,
+                                    "description": "Managed by Ansible",
+                                    "duplex": "Full",
+                                    "ipv4": [
+                                        {
+                                            "address": "172.25.150.21",
+                                            "subnet": "24"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": "5254.0001.c815",
+                                    "mediatype": "Virtual",
+                                    "mtu": 1500,
+                                    "operstatus": "up",
+                                    "type": "vNIC"
+                                },
+                                "Loopback0": {
+                                    "bandwidth": 8000000,
+                                    "description": "Managed by Ansible",
+                                    "duplex": null,
+                                    "ipv4": [
+                                        {
+                                            "address": "10.10.20.10",
+                                            "subnet": "32"
+                                        }
+                                    ],
+                                    "lineprotocol": "up",
+                                    "macaddress": null,
+                                    "mediatype": null,
+                                    "mtu": 1514,
+                                    "operstatus": "up",
+                                    "type": null
+                                }
+                            },
+                            "ansible_net_iostype": "IOS-XE",
+                            "ansible_net_model": "C8000V",
+                            "ansible_net_neighbors": {},
+                            "ansible_net_operatingmode": "autonomous",
+                            "ansible_net_python_version": "3.9.13",
+                            "ansible_net_serialnum": "9I2RFK6YTRO",
+                            "ansible_net_system": "ios",
+                            "ansible_net_version": "17.06.02",
+                            "ansible_network_resources": {}
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "available_network_resources": false,
+                                "gather_network_resources": null,
+                                "gather_subset": [
+                                    "interfaces"
+                                ]
+                            }
+                        }
+                    },
+                    "resolved_action": "cisco.ios.ios",
+                    "start": "2023-12-21T03:11:03.757878",
+                    "task": "Gather interface facts (post)",
+                    "task_action": "cisco.ios.ios_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:47",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-00000000000a",
+                    "uuid": "5fe793ed-0488-42bf-89ce-2c6d34ae6f0f"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "iosxe1.lab.example.com",
+                    "__number": 11,
+                    "__result": "Ok",
+                    "__task": "Show ansible_facts['net_interfaces'] (post)",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.669046,
+                    "end": "2023-12-21T03:11:06.264710",
+                    "event_loop": null,
+                    "host": "iosxe1.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe1.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "ansible_facts['net_interfaces']": {
+                            "GigabitEthernet1": {
+                                "bandwidth": 1000000,
+                                "description": null,
+                                "duplex": "Full",
+                                "ipv4": [
+                                    {
+                                        "address": "172.25.250.20",
+                                        "subnet": "24"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": "5254.0000.fa14",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "up",
+                                "type": "vNIC"
+                            },
+                            "GigabitEthernet2": {
+                                "bandwidth": 1000000,
+                                "description": "Managed by Ansible",
+                                "duplex": "Full",
+                                "ipv4": [
+                                    {
+                                        "address": "172.25.150.20",
+                                        "subnet": "24"
+                                    }
+                                ],
+                                "lineprotocol": "down",
+                                "macaddress": "5254.0001.c814",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "down",
+                                "type": "vNIC"
+                            },
+                            "Loopback0": {
+                                "bandwidth": 8000000,
+                                "description": "Managed by Ansible",
+                                "duplex": null,
+                                "ipv4": [
+                                    {
+                                        "address": "10.10.10.10",
+                                        "subnet": "32"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": null,
+                                "mediatype": null,
+                                "mtu": 1514,
+                                "operstatus": "up",
+                                "type": null
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2023-12-21T03:11:05.595664",
+                    "task": "Show ansible_facts['net_interfaces'] (post)",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:52",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-00000000000b",
+                    "uuid": "ef2d13af-02f8-4f94-b8cc-ba8a40b81abb"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "iosxe2.lab.example.com",
+                    "__number": 12,
+                    "__result": "Ok",
+                    "__task": "Show ansible_facts['net_interfaces'] (post)",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.679837,
+                    "end": "2023-12-21T03:11:06.287540",
+                    "event_loop": null,
+                    "host": "iosxe2.lab.example.com",
+                    "play": "Configure Cisco IOS interfaces",
+                    "play_pattern": "ios",
+                    "play_uuid": "22779b1e-7e67-7338-8f25-000000000003",
+                    "playbook": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml",
+                    "playbook_uuid": "5b9025fe-ca1e-4e25-bf13-ba63cd1efbf0",
+                    "remote_addr": "iosxe2.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "ansible_facts['net_interfaces']": {
+                            "GigabitEthernet1": {
+                                "bandwidth": 1000000,
+                                "description": null,
+                                "duplex": "Full",
+                                "ipv4": [
+                                    {
+                                        "address": "172.25.250.21",
+                                        "subnet": "24"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": "5254.0000.fa15",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "up",
+                                "type": "vNIC"
+                            },
+                            "GigabitEthernet2": {
+                                "bandwidth": 1000000,
+                                "description": "Managed by Ansible",
+                                "duplex": "Full",
+                                "ipv4": [
+                                    {
+                                        "address": "172.25.150.21",
+                                        "subnet": "24"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": "5254.0001.c815",
+                                "mediatype": "Virtual",
+                                "mtu": 1500,
+                                "operstatus": "up",
+                                "type": "vNIC"
+                            },
+                            "Loopback0": {
+                                "bandwidth": 8000000,
+                                "description": "Managed by Ansible",
+                                "duplex": null,
+                                "ipv4": [
+                                    {
+                                        "address": "10.10.20.10",
+                                        "subnet": "32"
+                                    }
+                                ],
+                                "lineprotocol": "up",
+                                "macaddress": null,
+                                "mediatype": null,
+                                "mtu": 1514,
+                                "operstatus": "up",
+                                "type": null
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2023-12-21T03:11:05.607703",
+                    "task": "Show ansible_facts['net_interfaces'] (post)",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml:52",
+                    "task_uuid": "22779b1e-7e67-7338-8f25-00000000000b",
+                    "uuid": "fb3eb3f1-82e9-454b-bb13-5152375b826a"
+                }
+            ],
+            "uuid": "22779b1e-7e67-7338-8f25-000000000003"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/inventory"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/configure_interfaces.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/student/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "hub.lab.example.com/ee-supported-rhel8:latest",
+                "pull": {
+                    "policy": "missing"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "stdout",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Not set",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Settings file",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Command line",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Settings file",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Settings file",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Settings file",
+        "ansible-navigator.playbook-artifact.enable": "Settings file",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "/home/student/DO457v2.3AAP/Exercises/CH5/task_loops/ansible-navigator.yml",
+        "settings_file_source": "Search path"
+    },
+    "status": "successful",
+    "status_color": 10,
+    "stdout": [
+        "",
+        "PLAY [Configure Cisco IOS interfaces] ******************************************",
+        "",
+        "TASK [Gather interface facts (pre)] ********************************************",
+        "\u001b[0;32mok: [iosxe1.lab.example.com]\u001b[0m",
+        "\u001b[0;32mok: [iosxe2.lab.example.com]\u001b[0m",
+        "",
+        "TASK [Show ansible_facts['net_interfaces'] (pre)] ******************************",
+        "\u001b[0;32mok: [iosxe2.lab.example.com] => {\u001b[0m",
+        "\u001b[0;32m    \"ansible_facts['net_interfaces']\": {\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet1\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": null,\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"172.25.250.21\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"24\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0000.fa15\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        },\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet2\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": null,\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"down\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0001.c815\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"administratively down\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        }\u001b[0m",
+        "\u001b[0;32m    }\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [iosxe1.lab.example.com] => {\u001b[0m",
+        "\u001b[0;32m    \"ansible_facts['net_interfaces']\": {\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet1\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": null,\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"172.25.250.20\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"24\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0000.fa14\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        },\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet2\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": null,\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"down\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0001.c814\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"administratively down\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        }\u001b[0m",
+        "\u001b[0;32m    }\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "TASK [Configure basic interface information] ***********************************",
+        "\u001b[0;33mchanged: [iosxe1.lab.example.com] => (item={'name': 'Loopback0', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '10.10.10.10/32'})\u001b[0m",
+        "\u001b[0;33mchanged: [iosxe2.lab.example.com] => (item={'name': 'Loopback0', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '10.10.20.10/32'})\u001b[0m",
+        "\u001b[0;33mchanged: [iosxe1.lab.example.com] => (item={'name': 'GigabitEthernet2', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '172.25.150.20/24'})\u001b[0m",
+        "\u001b[0;33mchanged: [iosxe2.lab.example.com] => (item={'name': 'GigabitEthernet2', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '172.25.150.21/24'})\u001b[0m",
+        "",
+        "TASK [Configure L3 interface information] **************************************",
+        "\u001b[0;33mchanged: [iosxe1.lab.example.com] => (item={'name': 'Loopback0', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '10.10.10.10/32'})\u001b[0m",
+        "\u001b[0;33mchanged: [iosxe2.lab.example.com] => (item={'name': 'Loopback0', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '10.10.20.10/32'})\u001b[0m",
+        "\u001b[0;33mchanged: [iosxe1.lab.example.com] => (item={'name': 'GigabitEthernet2', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '172.25.150.20/24'})\u001b[0m",
+        "\u001b[0;33mchanged: [iosxe2.lab.example.com] => (item={'name': 'GigabitEthernet2', 'description': 'Managed by Ansible', 'enabled': True, 'ipv4': '172.25.150.21/24'})\u001b[0m",
+        "",
+        "TASK [Pause 5 seconds] *********************************************************",
+        "Pausing for 5 seconds",
+        "(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)",
+        "\u001b[0;32mok: [iosxe1.lab.example.com]\u001b[0m",
+        "",
+        "TASK [Gather interface facts (post)] *******************************************",
+        "\u001b[0;32mok: [iosxe1.lab.example.com]\u001b[0m",
+        "\u001b[0;32mok: [iosxe2.lab.example.com]\u001b[0m",
+        "",
+        "TASK [Show ansible_facts['net_interfaces'] (post)] *****************************",
+        "\u001b[0;32mok: [iosxe1.lab.example.com] => {\u001b[0m",
+        "\u001b[0;32m    \"ansible_facts['net_interfaces']\": {\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet1\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": null,\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"172.25.250.20\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"24\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0000.fa14\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        },\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet2\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": \"Managed by Ansible\",\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"172.25.150.20\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"24\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"down\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0001.c814\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"down\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        },\u001b[0m",
+        "\u001b[0;32m        \"Loopback0\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 8000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": \"Managed by Ansible\",\u001b[0m",
+        "\u001b[0;32m            \"duplex\": null,\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"10.10.10.10\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"32\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": null,\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": null,\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1514,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": null\u001b[0m",
+        "\u001b[0;32m        }\u001b[0m",
+        "\u001b[0;32m    }\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [iosxe2.lab.example.com] => {\u001b[0m",
+        "\u001b[0;32m    \"ansible_facts['net_interfaces']\": {\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet1\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": null,\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"172.25.250.21\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"24\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0000.fa15\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        },\u001b[0m",
+        "\u001b[0;32m        \"GigabitEthernet2\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 1000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": \"Managed by Ansible\",\u001b[0m",
+        "\u001b[0;32m            \"duplex\": \"Full\",\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"172.25.150.21\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"24\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": \"5254.0001.c815\",\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": \"Virtual\",\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1500,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": \"vNIC\"\u001b[0m",
+        "\u001b[0;32m        },\u001b[0m",
+        "\u001b[0;32m        \"Loopback0\": {\u001b[0m",
+        "\u001b[0;32m            \"bandwidth\": 8000000,\u001b[0m",
+        "\u001b[0;32m            \"description\": \"Managed by Ansible\",\u001b[0m",
+        "\u001b[0;32m            \"duplex\": null,\u001b[0m",
+        "\u001b[0;32m            \"ipv4\": [\u001b[0m",
+        "\u001b[0;32m                {\u001b[0m",
+        "\u001b[0;32m                    \"address\": \"10.10.20.10\",\u001b[0m",
+        "\u001b[0;32m                    \"subnet\": \"32\"\u001b[0m",
+        "\u001b[0;32m                }\u001b[0m",
+        "\u001b[0;32m            ],\u001b[0m",
+        "\u001b[0;32m            \"lineprotocol\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"macaddress\": null,\u001b[0m",
+        "\u001b[0;32m            \"mediatype\": null,\u001b[0m",
+        "\u001b[0;32m            \"mtu\": 1514,\u001b[0m",
+        "\u001b[0;32m            \"operstatus\": \"up\",\u001b[0m",
+        "\u001b[0;32m            \"type\": null\u001b[0m",
+        "\u001b[0;32m        }\u001b[0m",
+        "\u001b[0;32m    }\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;33miosxe1.lab.example.com\u001b[0m     : \u001b[0;32mok=7   \u001b[0m \u001b[0;33mchanged=2   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;33miosxe2.lab.example.com\u001b[0m     : \u001b[0;32mok=6   \u001b[0m \u001b[0;33mchanged=2   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

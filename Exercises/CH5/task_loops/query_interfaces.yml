@@ -1,0 +1,13 @@
+---
+- name: Query Cisco IOS interfaces
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Gather interface facts
+      cisco.ios.ios_facts:
+        gather_subset:
+          - interfaces
+
+    - name: Show ansible_facts['net_interfaces']
+      ansible.builtin.debug:
+        var: ansible_facts['net_interfaces']
