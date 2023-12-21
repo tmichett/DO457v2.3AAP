@@ -1,0 +1,8 @@
+---
+- name: Gather and display facts
+  hosts: ios,junos
+  gather_facts: true
+  tasks:
+    - name: Display facts
+      ansible.builtin.debug:
+        var: ansible_facts

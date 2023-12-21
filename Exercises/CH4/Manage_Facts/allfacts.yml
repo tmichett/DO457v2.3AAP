@@ -1,0 +1,27 @@
+---
+- name: Gather and display facts for managed nodes
+  hosts: ios,junos
+  gather_facts: false
+  tasks:
+    - name: Create the facts directory if it does not exist
+      ansible.builtin.file:
+        path: facts
+        state: directory
+      run_once: true
+
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+        gather_subset:
+          - all
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Gather Junos facts
+      junipernetworks.junos.junos_facts:
+        gather_subset:
+          - all
+      when: ansible_network_os == 'junipernetworks.junos.junos'
+
+    - name: Save facts to file
+      ansible.builtin.copy:
+        content: "{{ ansible_facts | to_nice_yaml }}"
+        dest: "facts/{{ inventory_hostname }}.txt"

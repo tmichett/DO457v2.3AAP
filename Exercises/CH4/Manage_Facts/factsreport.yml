@@ -1,0 +1,21 @@
+---
+- name: Gather and display facts report for IOS managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+        gather_subset:
+          - min
+        gather_network_resources:
+          - vlans
+          - l3_interfaces
+
+    - name: Save facts to file
+      ansible.builtin.copy:
+        content: |
+          Hostname: {{ ansible_facts['net_hostname'] }}
+          Model: {{ ansible_facts['net_model'] }}
+          Version: {{ ansible_facts['net_version'] }}
+          {{ ansible_network_resources | to_nice_yaml(indent=2) }}
+        dest: "facts/{{ inventory_hostname }}.report"

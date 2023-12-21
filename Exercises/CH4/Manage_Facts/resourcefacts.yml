@@ -1,0 +1,13 @@
+---
+- name: Gather and display facts for IOS managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+        gather_network_resources:
+          - all
+
+    - name: Display facts
+      ansible.builtin.debug:
+        var: ansible_network_resources
