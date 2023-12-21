@@ -1,0 +1,6 @@
+---
+dns_domains:
+ - lab.example.com
+ - example.com
+dns_name_servers:
+ - 172.25.250.220

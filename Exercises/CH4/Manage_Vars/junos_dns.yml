@@ -1,0 +1,19 @@
+---
+- name: Configure DNS settings on Juniper managed nodes
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Enable netconf service on port 830
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        netconf_port: 830
+        state: present
+
+    - name: Configure DNS settings
+      junipernetworks.junos.junos_system:
+        domain_search:
+          - lab.example.com
+          - example.com
+        name_servers:
+          - 172.25.250.220

@@ -1,0 +1,15 @@
+---
+- name: Auxiliary playbook to verify SNMP configuration
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Verifying SNMP configuration
+      cisco.ios.ios_command:
+        commands:
+          - show snmp | include (Location|Contact)
+          - show snmp community | begin (ro|rw)
+      register: ios_snmp
+
+    - name: Display SNMP configuration
+      ansible.builtin.debug:
+        var: ios_snmp['stdout_lines']

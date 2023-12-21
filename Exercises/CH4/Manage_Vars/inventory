@@ -1,0 +1,5 @@
+[ios]
+iosxe[1:2].lab.example.com
+
+[junos]
+junos[1:2].lab.example.com

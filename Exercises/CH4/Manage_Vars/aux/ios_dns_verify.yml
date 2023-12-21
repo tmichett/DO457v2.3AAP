@@ -1,0 +1,15 @@
+---
+- name: Auxiliary playbook to verify DNS configuration
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Verifying DNS configuration
+      cisco.ios.ios_command:
+        commands:
+          - show ip name-server
+          - show ip dns view | include list
+      register: ios_dns
+
+    - name: Display DNS configuration
+      ansible.builtin.debug:
+        var: ios_dns['stdout']

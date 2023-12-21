@@ -1,0 +1,9 @@
+---
+snmp_state: merged
+snmp_location: 'Raleigh, NC'
+snmp_contact: 'Network Engineering | neteng@company.com'
+snmp_communities:
+  - name: rocommunity2n4g!
+    ro: true
+  - name: rwcommunityd7g$v
+    rw: true

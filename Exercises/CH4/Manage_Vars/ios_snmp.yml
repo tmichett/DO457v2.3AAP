@@ -1,0 +1,16 @@
+---
+- name: Configure SNMP on Cisco IOS XE managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Configure SNMP settings
+      cisco.ios.ios_snmp_server:
+        state: merged
+        config:
+          location: 'Raleigh, NC'
+          contact: 'Network Engineering | neteng@company.com'
+          communities:
+            - name: rocommunity2n4g!
+              ro: true
+            - name: rwcommunityd7g$v
+              rw: true

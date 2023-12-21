@@ -1,0 +1,21 @@
+---
+- name: Auxiliary playbook to verify SNMP configuration
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Enable netconf service on port 830
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        netconf_port: 830
+        state: present
+
+    - name: Verifying SNMP configuration
+      junipernetworks.junos.junos_command:
+        commands:
+          - show configuration snmp
+      register: junos_snmp
+
+    - name: Display SNMP configuration
+      ansible.builtin.debug:
+        var: junos_snmp['stdout_lines']

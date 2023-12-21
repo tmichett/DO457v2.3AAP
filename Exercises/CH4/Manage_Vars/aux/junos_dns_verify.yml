@@ -1,0 +1,22 @@
+---
+- name: Auxiliary playbook to verify DNS configuration
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Enable netconf service on port 830
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_netconf:
+        netconf_port: 830
+        state: present
+
+    - name: Verifying DNS configuration
+      junipernetworks.junos.junos_command:
+        commands:
+          - show configuration system name-server
+          - show configuration system domain-search
+      register: junos_dns
+
+    - name: Display DNS configuration
+      ansible.builtin.debug:
+        var: junos_dns['stdout']

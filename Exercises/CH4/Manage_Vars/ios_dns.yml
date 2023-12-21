@@ -1,0 +1,12 @@
+---
+- name: Configure DNS settings on IOS managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Configure DNS settings
+      cisco.ios.ios_system:
+        domain_search:
+          - lab.example.com
+          - example.com
+        name_servers:
+          - 172.25.250.220
