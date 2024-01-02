@@ -1,0 +1,15 @@
+= Generating Navigator Configuration Files
+
+The following will generate the "effective" configuration file with the defined options of the EEI (Execution Environment Image) and define the *PP* (Pull Policy) to pull when the image is missing. This defined the EE and pull-policy to prevent it from reaching out to Red Hat to download an EEI.
+
+[source,bash]
+----
+ansible-navigator settings --effective --pp missing --eei ee-supported-rhel8 > ansible-navigator-demo.yml
+----
+
+== Generating Complete File 
+
+[source,bash]
+----
+ansible-navigator settings  --sample --eei ee-supported-rhel8:latest --pp missing > ansible-navigator-demo-complete.yml
+----
