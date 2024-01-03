@@ -1,3 +1,4 @@
 ---
 # from Ansible Galaxy, using the latest version 
-- src: tmichett.manage_firewall
+collections:
+  - name: tmichett.do457_demo_collection
