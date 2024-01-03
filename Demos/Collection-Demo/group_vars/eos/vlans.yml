@@ -1,0 +1,8 @@
+---
+vlans:
+  - name: dmz
+    vlan_id: 10
+  - name: servers
+    vlan_id: 20
+  - name: vms
+    vlan_id: 30

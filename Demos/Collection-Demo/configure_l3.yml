@@ -1,0 +1,46 @@
+---
+- name: Configure Cisco IOS interfaces
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Configure L3 interface information
+      when:
+        - interfaces is defined
+        - interfaces[inventory_hostname] is defined
+        - item['ipv4'] is defined
+      cisco.ios.ios_l3_interfaces:
+        config:
+          - name: "{{ item['name'] }}"
+            ipv4:
+              - address: "{{ item['ipv4'] }}"
+        state: merged
+      loop: "{{ interfaces[inventory_hostname] }}"
+      notify: ios_save_changes
+
+  handlers:
+    - name: ios_save_changes
+      cisco.ios.ios_config:
+        save_when: always
+
+- name: Configure Arista EOS interfaces
+  hosts: eos
+  gather_facts: false
+  tasks:
+    - name: Configure L3 interface information
+      when:
+        - interfaces is defined
+        - interfaces[inventory_hostname] is defined
+        - item['ipv4'] is defined
+      arista.eos.eos_l3_interfaces:
+        config:
+          - name: "{{ item['name'] }}"
+            ipv4:
+              - address: "{{ item['ipv4'] }}"
+        state: merged
+      loop: "{{ interfaces[inventory_hostname] }}"
+      notify: eos_save_changes
+
+  handlers:
+    - name: eos_save_changes
+      arista.eos.eos_config:
+        save_when: always

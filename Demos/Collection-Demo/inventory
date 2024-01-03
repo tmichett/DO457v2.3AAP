@@ -1,0 +1,11 @@
+workstation
+
+[ios]
+iosxe[1:2].lab.example.com
+
+[eos]
+arista[1:2].lab.example.com
+
+[managed_nodes:children]
+ios
+eos

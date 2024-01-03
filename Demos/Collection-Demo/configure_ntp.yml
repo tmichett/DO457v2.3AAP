@@ -1,0 +1,36 @@
+---
+- name: Configure NTP settings on IOS managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Configure NTP settings
+      cisco.ios.ios_ntp_global:
+        config:
+          servers:
+            - server: "{{ ntp_server_1 }}"
+            - server: "{{ ntp_server_2 }}"
+        state: merged
+      notify: ios_save_changes
+
+  handlers:
+    - name: ios_save_changes
+      cisco.ios.ios_config:
+        save_when: always
+
+- name: Configure NTP settings on EOS managed nodes
+  hosts: eos
+  gather_facts: false
+  tasks:
+    - name: Configure NTP settings
+      arista.eos.eos_ntp_global:
+        config:
+          servers:
+            - server: "{{ ntp_server_1 }}"
+            - server: "{{ ntp_server_2 }}"
+        state: merged
+      notify: eos_save_changes
+
+  handlers:
+    - name: eos_save_changes
+      arista.eos.eos_config:
+        save_when: always

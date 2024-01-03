@@ -1,0 +1,15 @@
+---
+- name: Configure Arista EOS interfaces
+  hosts: eos
+  gather_facts: false
+  tasks:
+    - name: Configure VLANs
+      arista.eos.eos_vlans:
+        config: "{{ vlans }}"
+        state: merged
+      notify: eos_save_changes
+
+  handlers:
+    - name: eos_save_changes
+      arista.eos.eos_config:
+        save_when: always
