@@ -13,7 +13,7 @@
         scm_url: https://github.com/tmichett/AAP2_Controller_Demo.git
         scm_type: git
         scm_branch: main
-        credential: Travis GH SCM PAT Credential
+      #  credential: Travis GH SCM PAT Credential
         controller_username: admin
         controller_password: redhat
         controller_host: https://controller.lab.example.com

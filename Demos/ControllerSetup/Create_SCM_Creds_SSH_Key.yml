@@ -1,0 +1,26 @@
+---
+- name: Create Credentials
+  hosts: workstation
+  vars_files: vars.yml
+  tasks:
+
+    - name: Fetch private key
+      slurp:
+        src: '/home/student/.ssh/lab_rsa'
+      register: student_ssh_key
+
+    - name: Create Network Machine Credential
+      ansible.controller.credential:
+        name: "Student SSH SCM Key Credentials"
+        description: "SSH Key"
+        organization: Red Hat Training
+        credential_type: Source Control
+        inputs:
+          username: student
+          ssh_key_data: "{{ student_ssh_key['content'] | b64decode }}"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+ 
