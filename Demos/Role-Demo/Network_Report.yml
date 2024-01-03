@@ -33,3 +33,13 @@
       ansible.builtin.include_role:
         name: tmichett.do457_demo_role
 
+## Opens Public Firewall on Workstation
+
+    - name: Open Firewall
+      ansible.builtin.include_role:
+        name: tmichett.manage_firewall
+      vars:
+        fw:
+          - fw_port: 8080
+            fw_proto: tcp
+        
