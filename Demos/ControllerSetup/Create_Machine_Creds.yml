@@ -1,6 +1,6 @@
 ---
 - name: Create Credentials
-  hosts: localhost
+  hosts: workstation
 
   tasks:
 
@@ -13,6 +13,26 @@
         inputs:
           username: root
           password: redhat
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
+    - name: Fetch private key
+      slurp:
+        src: '/home/student/.ssh/lab_rsa'
+      register: student_ssh_key
+
+    - name: Create Network Machine Credential
+      ansible.controller.credential:
+        name: "DO457 Network Credentials"
+        description: "SSH Username and Password"
+        organization: Red Hat Training
+        credential_type: Machine
+        inputs:
+          username: student
+          ssh_key_data: "{{ student_ssh_key['content'] | b64decode }}"
         controller_username: admin
         controller_password: redhat
         controller_host: https://controller.lab.example.com
