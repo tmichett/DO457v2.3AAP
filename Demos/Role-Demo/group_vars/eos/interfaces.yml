@@ -1,0 +1,23 @@
+---
+interfaces:
+  arista1.lab.example.com:
+    - name: Loopback0
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "10.10.30.10/32"
+
+    - name: Ethernet1
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "172.25.150.22/24"
+
+  arista2.lab.example.com:
+    - name: Loopback0
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "10.10.40.10/32"
+
+    - name: Ethernet1
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "172.25.150.23/24"

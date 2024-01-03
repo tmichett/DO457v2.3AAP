@@ -1,0 +1,9 @@
+---
+- name: Configure L3 interfaces
+  ansible.builtin.import_playbook: configure_l3.yml
+
+- name: Configure VLANs
+  ansible.builtin.import_playbook: configure_vlans.yml
+
+- name: Configure NTP service
+  ansible.builtin.import_playbook: configure_ntp.yml

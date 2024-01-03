@@ -1,0 +1,8 @@
+---
+- name: Play to build a report
+  hosts: workstation
+  gather_facts: false
+  tasks:
+    - name: Build the report
+      ansible.builtin.include_role:
+        name: report
