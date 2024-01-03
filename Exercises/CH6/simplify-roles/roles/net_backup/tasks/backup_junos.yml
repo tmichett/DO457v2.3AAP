@@ -1,0 +1,7 @@
+---
+- name: Backup Junos configurations
+  junipernetworks.junos.junos_config:
+    backup: true
+    backup_options:
+      dir_path: "{{ backup_path }}"
+      filename: "{{ inventory_hostname }}.cfg"

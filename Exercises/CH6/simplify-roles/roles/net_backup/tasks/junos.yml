@@ -1,0 +1,7 @@
+---
+- name: Enable NETCONF
+  ansible.builtin.include_tasks:
+    file: junos_netconf_enable.yml
+- name: Create Junos backup files
+  ansible.builtin.include_tasks:
+    file: backup_junos.yml

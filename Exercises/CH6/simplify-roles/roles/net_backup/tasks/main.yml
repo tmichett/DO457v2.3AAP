@@ -1,0 +1,5 @@
+---
+# tasks file for net_backup
+- name: Backup network device configs
+  ansible.builtin.include_tasks:
+    file: "{{ ansible_network_os.split('.')[2] }}.yml"

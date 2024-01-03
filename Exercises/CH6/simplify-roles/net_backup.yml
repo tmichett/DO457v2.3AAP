@@ -1,0 +1,11 @@
+---
+- name: Back up managed network node configurations
+  hosts:
+    - junos
+    - ios
+  gather_facts: false
+  tasks:
+    - name: Backup network managed node configurations
+      ansible.builtin.include_role:
+        name: net_backup
+      when: ansible_network_os is defined
