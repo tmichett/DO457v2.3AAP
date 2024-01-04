@@ -1,0 +1,19 @@
+! Command: show running-config
+! device: {{ hostname }} (vEOS-lab, EOS-4.30.1F)
+!
+hostname {{ hostname }}
+!
+{# loop through each interface #}
+{% for INTERFACE in interfaces %}
+interface {{ INTERFACE['name'] }}
+   description {{ INTERFACE['name'] }} Interface
+   ip address {{ INTERFACE['address'] }}
+!
+{% endfor %}
+ip access-list templates-project
+{# loop through each access list #}
+{% for ACL in acls %}
+   {{ ACL['id'] }} permit ip host {{ ACL['host'] }} any log
+{% endfor %}
+!
+end

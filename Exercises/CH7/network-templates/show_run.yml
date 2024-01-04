@@ -1,0 +1,28 @@
+---
+- name: Show the active configuration on IOS and EOS nodes
+  hosts:
+    - eos
+    - ios
+  gather_facts: false
+  tasks:
+    - name: Show the running configuration on EOS nodes
+      when: ansible_network_os == 'arista.eos.eos'
+      arista.eos.eos_command:
+        commands:
+          - show running-config
+      register: eos_configs
+
+    - name: Display configs
+      ansible.builtin.debug:
+        var: eos_configs
+
+    - name: Show the running configuration on IOS nodes
+      when: ansible_network_os == 'cisco.ios.ios'
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: ios_configs
+
+    - name: Display configs
+      ansible.builtin.debug:
+        var: ios_configs

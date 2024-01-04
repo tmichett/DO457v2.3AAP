@@ -1,0 +1,16 @@
+hostname {{ hostname }}
+!
+{# loop through each interface #}
+{% for INTERFACE in interfaces %}
+interface {{ INTERFACE['name'] }}
+ description {{ INTERFACE['name'] }} Interface
+ ip address {{ INTERFACE['address'] }} {{ INTERFACE['netmask'] }}
+!
+{% endfor %}
+ip access-list extended templates-project
+{# loop through each access list #}
+{% for ACL in acls %}
+ {{ ACL['id'] }} permit ip host {{ ACL['host'] }} any log
+{% endfor %}
+!
+end

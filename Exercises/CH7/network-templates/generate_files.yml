@@ -1,0 +1,37 @@
+---
+- name: Gather minimal facts
+  hosts:
+    - eos
+    - ios
+  gather_facts: true
+  tasks: []
+- name: Generate configuration files from templates
+  hosts: workstation.lab.example.com
+  become: true
+  become_user: student
+  gather_facts: false
+  vars:
+    config_dir: "{{ playbook_dir }}/configs"
+  tasks:
+    - name: Create the '{{ config_dir }}' directory
+      ansible.builtin.file:
+        path: "{{ config_dir }}"
+        state: directory
+    - name: Generate Arista configuration files
+      vars:
+        hostname: "{{ hostvars[item]['ansible_facts']['net_hostname'] }}"
+        interfaces: "{{ hostvars[item]['interfaces'] }}"
+        acls: "{{ hostvars[item]['acls'] }}"
+      ansible.builtin.template:
+        src: templates/eos_config.j2
+        dest: "{{ config_dir }}/{{ item }}.cfg"
+      loop: "{{ groups['eos'] }}"
+    - name: Generate Cisco configuration files
+      vars:
+        hostname: "{{ hostvars[item]['ansible_facts']['net_hostname'] }}"
+        interfaces: "{{ hostvars[item]['interfaces'] }}"
+        acls: "{{ hostvars[item]['acls'] }}"
+      ansible.builtin.template:
+        src: templates/ios_config.j2
+        dest: "{{ config_dir }}/{{ item }}.cfg"
+      loop: "{{ groups['ios'] }}"

@@ -1,0 +1,8 @@
+---
+interfaces:
+  - name: Loopback100
+    address: 10.10.10.106
+    netmask: 255.255.255.255
+  - name: Loopback101
+    address: 10.10.10.107
+    netmask: 255.255.255.255
