@@ -1,0 +1,9 @@
+---
+- example: "GigabitEthernet1 is up, line protocol is up"
+  getval: '(?P<name>\S+)\sis\s(?P<admin_state>\S+)\,\sline\sprotocol\sis\s(?P<oper_state>\S+)'
+  result:
+    "{{ name }}":
+      name: "{{ name }}"
+      state:
+        admin: "{{ admin_state }}"
+        operating: "{{ oper_state }}"

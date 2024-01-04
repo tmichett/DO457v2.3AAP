@@ -1,0 +1,11 @@
+---
+- name: Add a VLAN
+  hosts: eos
+  gather_facts: false
+  tasks:
+    - name: Add a VLAN
+      arista.eos.eos_vlans:
+        state: merged
+        config:
+          - name: vlan500
+            vlan_id: 500

@@ -1,0 +1,8 @@
+[ios]
+iosxe[1:2].lab.example.com
+
+[eos]
+arista[1:2].lab.example.com
+
+[junos]
+junos[1:2].lab.example.com

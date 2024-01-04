@@ -1,0 +1,14 @@
+---
+- name: Run a command across multiple network platforms
+  hosts: ios,junos,eos
+  gather_facts: false
+  tasks:
+    - name: Run a command
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      ansible.netcommon.cli_command:
+        command: "{{ show_interfaces }}"
+      register: result
+    - name: Display the results
+      ansible.builtin.debug:
+        var: result['stdout_lines']
