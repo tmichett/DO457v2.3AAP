@@ -1,0 +1,7 @@
+---
+- name: Enable the NETCONF service
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+  junipernetworks.junos.junos_netconf:
+    listens_on: 830
+    state: present

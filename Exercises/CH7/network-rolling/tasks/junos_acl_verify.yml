@@ -1,0 +1,8 @@
+---
+- name: Gather Junos ACL configuration
+  junipernetworks.junos.junos_acls:
+    state: gathered
+  register: result
+- name: Assert that ACLs were correctly configured
+  ansible.builtin.assert:
+    that: acl_config == result['gathered']

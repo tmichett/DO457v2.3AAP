@@ -1,0 +1,21 @@
+---
+- name: Update Juniper Junos managed nodes to use new ACLs
+  hosts: junos
+  gather_facts: false
+  vars_files:
+    - acls.yml
+  max_fail_percentage: 0
+  serial:
+    - 1
+    - 25%
+    - 100%  
+
+  tasks:
+    - name: Juniper NETCONF configuration
+      ansible.builtin.import_tasks: tasks/junos_netconf_enable.yml
+
+    - name: Juniper Junos ACL configuration
+      ansible.builtin.import_tasks: tasks/junos_acl_config.yml
+
+    - name: Assert that ACLs were correctly configured
+      ansible.builtin.import_tasks: tasks/junos_acl_verify.yml
