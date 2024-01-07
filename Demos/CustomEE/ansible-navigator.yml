@@ -6,7 +6,7 @@ ansible-navigator:
         - ./inventory
 
   execution-environment:
-    image:  quay.io/tmichett/travis_do374:1.1
+    image:  quay.io/tmichett/do457-custom-ee:2.0
     pull:
       policy: missing
   
