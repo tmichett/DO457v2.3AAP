@@ -5,7 +5,8 @@ ansible-navigator:
       entries:
         - ./inventory
   execution-environment:
-    image: hub.lab.example.com/ee-supported-rhel8:latest
+    #image: hub.lab.example.com/ee-supported-rhel8:latest
+    image: quay.io/tmichett/do457-custom-ee:2.0
     pull:
       policy: missing
   mode: stdout
