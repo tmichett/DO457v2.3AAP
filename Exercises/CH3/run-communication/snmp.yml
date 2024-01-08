@@ -1,0 +1,24 @@
+---
+- name: Configure SNMP on Juniper managed nodes
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Verify connectivity between the managed nodes
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_ping:
+        dest: "{{ inventory_hostname }}"
+        count: 5
+
+    - name: Configure SNMP on managed nodes
+      junipernetworks.junos.junos_snmp_server:
+        state: merged
+        config:
+          location: 'Raleigh, NC'
+          contact: 'Network Engineering | neteng@company.com'
+          description: "SNMP Server"
+          communities:
+            - name: rocommunity2n4g!
+              authorization: read-only
+            - name: rwcommunityd7g$v
+              authorization: read-write

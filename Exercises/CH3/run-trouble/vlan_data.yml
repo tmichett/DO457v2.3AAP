@@ -1,0 +1,14 @@
+---
+- name: Creating a file with VLANs data
+  hosts: ios
+  gather_facts: false
+  task:
+    - name: Gather IOS interface facts
+      cisco.ios.ios_facts:
+       gather_network_resources: vlans
+
+    - name: Copying the vlan configuration to a file
+      ansible.builtin.copy:
+        content: "{{ vlans | to_nice_yaml }}"
+        dest: "{{ inventory_hostname }}_vlan.yml"
+        mode: 0600

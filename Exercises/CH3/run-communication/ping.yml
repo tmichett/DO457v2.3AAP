@@ -1,0 +1,11 @@
+---
+- name: Networking - ping
+  hosts: junos
+  gather_facts: false
+  tasks:
+    - name: Ping managed nodes
+      vars:
+        ansible_connection: ansible.netcommon.network_cli
+      junipernetworks.junos.junos_ping:
+        dest: "{{ inventory_hostname }}"
+        count: 5

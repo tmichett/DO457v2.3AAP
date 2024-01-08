@@ -4,13 +4,10 @@ ansible-navigator:
     inventory:
       entries:
         - ./inventory
-
   execution-environment:
-    image:  quay.io/tmichett/do457-custom-ee:2.0
+    image: hub.lab.example.com/ee-supported-rhel8:latest
     pull:
       policy: missing
-  
   mode: stdout
-
   playbook-artifact:
     enable: false

@@ -1,0 +1,25 @@
+---
+- name: Networking - dns
+  hosts: junos
+  gather_facts: false
+  tasks:
+#    - name: Enable netconf service on port 830
+#      vars:
+#        ansible_connection: ansible.netcommon.network_cli
+#      junipernetworks.junos.junos_netconf:
+#        netconf_port: 830
+#        state: present
+
+#    - name: Configure DNS settings
+#      junipernetworks.junos.junos_system:
+#        name_servers: 172.25.250.220
+
+    - name: Checking DNS configuration
+      junipernetworks.junos.junos_command:
+        commands:
+          - show configuration system name-server
+      register: junos_dns
+
+    - name: Display DNS configuration
+      ansible.builtin.debug:
+        var: junos_dns['stdout']

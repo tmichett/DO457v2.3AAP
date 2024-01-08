@@ -1,0 +1,17 @@
+---
+- name: Networking - netconf
+  hosts: junos
+  gather_facts: false
+  tasks:
+#    - name: Enable netconf service on port 830
+#      vars:
+#        ansible_connection: ansible.netcommon.network_cli
+#      junipernetworks.junos.junos_netconf:
+#        netconf_port: 830
+#        state: present
+
+    - name: Checking connectivity
+      ansible.builtin.wait_for:
+        host: "{{ inventory_hostname }}"
+        port: 830
+        timeout: 5
