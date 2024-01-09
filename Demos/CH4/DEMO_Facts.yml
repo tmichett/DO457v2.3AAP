@@ -1,0 +1,17 @@
+---
+- name: Gather and display facts
+  hosts: ios,junos
+  gather_facts: true
+  tasks:
+    - name: Display fact types
+      ansible.builtin.debug:
+        var: ansible_facts | type_debug
+
+    - name: Display facts
+      ansible.builtin.debug:
+        var: ansible_facts
+
+    - name: Display a Specific Fact
+      ansible.builtin.debug:
+        msg: I am a specific fact from {{ inventory_hostname }} and I'm the serial number {{ ansible_facts['net_serialnum'] }}.
+
