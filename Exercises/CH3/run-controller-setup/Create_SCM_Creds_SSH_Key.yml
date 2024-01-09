@@ -1,0 +1,45 @@
+---
+- name: Create Credentials
+  hosts: workstation
+  vars_files: vars.yml
+  tasks:
+
+    - name: Fetch private key for Gitlab
+      slurp:
+        src: '/home/student/.ssh/gitlab_rsa'
+      register: student_scm_key
+
+    - name: Create Gilab SCM Credential
+      ansible.controller.credential:
+        name: "Git Projects"
+        description: "Student SSH SCM Key Credentials - SSH Key"
+        organization: Default
+        credential_type: Source Control
+        inputs:
+          username: student
+          ssh_key_data: "{{ student_scm_key['content'] | b64decode }}"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+ 
+    - name: Fetch private key for IOS Device
+      slurp:
+        src: '/home/student/.ssh/lab_rsa'
+      register: student_ssh_key
+
+    - name: Create Cisco Machine Credential
+      ansible.controller.credential:
+        name: "Cisco IOS XE Auth"
+        description: "Student SSH Machine Key Credentials - SSH Key"
+        organization: Default
+        credential_type: Machine
+        inputs:
+          username: student
+          ssh_key_data: "{{ student_ssh_key['content'] | b64decode }}"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present

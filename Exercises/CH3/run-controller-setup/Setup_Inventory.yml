@@ -1,0 +1,45 @@
+---
+- name: Playbook to Configure Controller with a Project-Based inventory Source for the Job Template Workflow Demo
+  hosts: localhost
+  tasks:
+
+    - name: Create Cisco IOS XE Inventory
+      ansible.controller.inventory:
+        name: Cisco IOS XE
+        organization: "Default"
+        state: "present"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+
+
+
+    - name: Create Cisco IOS XE Source -  Source
+      ansible.controller.inventory_source:
+        name: "Cisco IOS XE Source"
+        organization: "Default"
+        inventory: "Cisco IOS XE"
+        source_project: "SNMP"
+        source: scm
+        source_path: "inventory"
+        update_on_launch: "no"
+        overwrite: "yes"
+        overwrite_vars: "yes"
+        state: "present"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+
+
+
+    - name: Initial Update Cisco IOS XE Source -  Source
+      ansible.controller.inventory_source_update:
+        name: Cisco IOS XE Source
+        organization: "Default"
+        inventory: "Cisco IOS XE"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false

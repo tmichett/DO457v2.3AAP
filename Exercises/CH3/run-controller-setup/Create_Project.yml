@@ -1,0 +1,23 @@
+---
+- name: Create Project
+  hosts: localhost
+
+  tasks:
+
+    - name: Create SNMP Project
+      ansible.controller.project:
+        name: "SNMP"
+        description: "DO457 SNMP Project - Chapter 3"
+        organization: "Default"
+        scm_update_on_launch: "no"
+        scm_url: git@git.lab.example.com:student/snmp
+        scm_type: git
+        scm_branch: exercise
+        allow_override: true
+        scm_delete_on_update: true
+        credential: Git Projects
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present

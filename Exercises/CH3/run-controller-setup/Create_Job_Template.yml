@@ -1,0 +1,22 @@
+---
+- name: Create Job Template
+  hosts: localhost
+
+  tasks:
+
+    - name: Create Job Template
+      ansible.controller.job_template:
+        name: "Cisco SNMP"
+        description: "Cisco SNMP Playbook - Chapter 3"
+        organization: Default
+        project: SNMP
+        inventory: Cisco IOS XE
+        job_type: run
+        playbook: cisco_snmp.yml
+        credential: Cisco IOS XE Auth
+        # ask_extra_vars: "yes"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
