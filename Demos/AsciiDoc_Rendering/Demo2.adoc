@@ -1,0 +1,23 @@
+
+.Current Course Guide Example
+[source,bash]
+----
+---
+- name: Configure login banners
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Configure banner on IOS devices
+      cisco.ios.ios_banner:
+        banner: login
+        text: Managed by Ansible
+        state: present
+      notify: ios_save_changes
+
+  handlers:
+    - name: ios_save_changes
+      cisco.ios.ios_config:
+        save_when: always
+----
+
+image::images/Demo2-3aac2.png[title="YAML Source Block Image Using VIM CC and NU", align="center"]
