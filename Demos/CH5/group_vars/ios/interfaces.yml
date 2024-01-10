@@ -19,3 +19,7 @@ interfaces:
       description: Managed by Ansible
       enabled: true
       ipv4: "172.25.150.21/24"
+    - name: GigabitEthernet1
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "172.25.250.21/24"
