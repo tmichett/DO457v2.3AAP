@@ -1,0 +1,41 @@
+---
+- name: Gather and display facts
+  hosts: ios
+  gather_facts: true
+  tasks:
+    - name: Display Variable types
+      ansible.builtin.debug:
+        var: interfaces | type_debug
+
+    - name: Display Variable for type single element
+      ansible.builtin.debug:
+        var: interfaces['iosxe1.lab.example.com'] | type_debug
+
+    - name: Display Variable value for single element
+      ansible.builtin.debug:
+        var: interfaces['iosxe1.lab.example.com'] 
+
+    - name: Display Variable for single element (Data Type)
+      ansible.builtin.debug:
+        var: interfaces[item] | type_debug
+      loop: "{{ interfaces | list }}"
+
+    - name: Display Variable for single element (Data Value)
+      ansible.builtin.debug:
+        var: interfaces[item] 
+      loop: "{{ interfaces | list }}"
+
+    - name: Accessing Values for Configuration from a List
+      ansible.builtin.debug:
+        msg: |
+          "I'm configuring an interface on {{ inventory_hostname }}. 
+          The interface names are - {{ interfaces[item]| map(attribute='name') }}. 
+          The IP Configured IP Addresses are - {{ interfaces[item]| map (attribute='ipv4') }}."
+      loop: "{{ interfaces | list }}"
+
+    - name: Accessing a specific Value for Configuration from a List
+      ansible.builtin.debug:
+        msg: |
+          "I'm configuring an interface on {{ inventory_hostname }}.
+          I'm configuring the interface named {{ interfaces[item] }}."" 
+      loop: "{{ interfaces | list }}"     

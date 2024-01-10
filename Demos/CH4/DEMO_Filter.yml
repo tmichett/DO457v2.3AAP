@@ -9,11 +9,11 @@
       - 192.5.6.aa
       - 172.25.250.9/24
   tasks:
-    - name: Display fact types
+    - name: Display variable types
       ansible.builtin.debug:
         var: ip_addresses | type_debug
 
-    - name: Display facts
+    - name: Display variable values
       ansible.builtin.debug:
         var: ip_addresses
 

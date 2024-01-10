@@ -1,0 +1,21 @@
+---
+interfaces:
+  iosxe1.lab.example.com:
+    - name: Loopback0
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "10.10.10.10/32"
+    - name: GigabitEthernet2
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "172.25.150.20/24"
+
+  iosxe2.lab.example.com:
+    - name: Loopback0
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "10.10.20.10/32"
+    - name: GigabitEthernet2
+      description: Managed by Ansible
+      enabled: true
+      ipv4: "172.25.150.21/24"
