@@ -7,3 +7,5 @@
 - import_playbook: Setup_Inventory.yml
 - import_playbook: Create_Job_Template.yml
 - import_playbook: Create_Job_Template2.yml
+- import_playbook: Create_Job_Template_Fail.yml
+- import_playbook: Create_Job_Template_Fail_Fix.yml

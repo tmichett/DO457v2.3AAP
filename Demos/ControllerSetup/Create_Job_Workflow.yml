@@ -1,0 +1,60 @@
+---
+- name: Create Job WorkflowTemplate
+  hosts: localhost
+
+  tasks:
+
+### Create Job Workflow Template
+
+    - name: Create Job Workflow Template
+      ansible.controller.workflow_job_template:
+        name: "DO457 Deploy Web Demo Workflow Job Template"
+        organization: Red Hat Training
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
+### Run Job Template for Failure
+    - name: Create Run Job Template Failure Step Step
+      ansible.controller.workflow_job_template_node:
+        organization: Red Hat Training
+        identifier: Failure Step
+        workflow_job_template: "DO457 Deploy Web Demo Workflow Job Template"
+        unified_job_template: "DEMO - DO457 Cisco Switch VLAN Check - Failure Playbook"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        extra_data:
+          inv_host_var: DEV
+
+
+### Synchronize Inventory
+    - name: Create Synchronize Inventory Source Step
+      ansible.controller.workflow_job_template_node:
+        organization: Red Hat Training
+        identifier: Synchronize Inventory
+        workflow_job_template: "DO457 Deploy Web Demo Workflow Job Template"
+        unified_job_template: "DO457 Demo Project Inventory Source"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        success_nodes:
+          - Failure Step
+
+### Synchronize Project
+    - name: Create Synchronize Project Step
+      ansible.controller.workflow_job_template_node:
+        organization: Red Hat Training
+        identifier: Synchronize Project
+        workflow_job_template: "DO457 Deploy Web Demo Workflow Job Template"
+        unified_job_template: "DO457 Demo Project"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        success_nodes:
+          - Synchronize Inventory

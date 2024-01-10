@@ -1,0 +1,24 @@
+---
+- name: Create Job Template
+  hosts: localhost
+
+  tasks:
+
+    - name: Create Job Template for Controller Failure - Fix Demo
+      ansible.controller.job_template:
+        name: "DEMO - DO457 Cisco Switch VLAN Check - Failure Fix Playbook"
+        description: "Demo Job from Project"
+        organization: Red Hat Training
+        project: DO457 Demo Project
+        inventory: DO457 Demo Inventory
+        job_type: run
+        playbook: "DO457-Fail-Demo-Fix.yml"
+        credential: DO457 Network Credentials
+        #ask_extra_vars: "yes"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+        limit: network_devs
+        
