@@ -37,7 +37,6 @@
       loop: "{{ interfaces | list }}"
       when: item == inventory_hostname
 
-## Need to finish the rest of this task.
     - name: Accessing a specific Value for Configuration from a List
       ansible.builtin.debug:
         msg: |
