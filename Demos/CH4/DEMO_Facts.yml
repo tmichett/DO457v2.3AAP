@@ -20,8 +20,3 @@
       ansible.builtin.debug:
         msg: I am fixing {{ inventory_hostname }} with a manual command because my version {{ ansible_facts['net_version'] }} has security vulnerabilities that need manually patched.
       when: ansible_facts['net_version'] == "23.1R1.8"
-
-
-
-
-
