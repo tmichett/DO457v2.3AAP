@@ -1,0 +1,41 @@
+---
+- name: Demo Failure
+  hosts: ios
+  order: sorted
+  gather_facts: false
+  vars: 
+    error_ok: false
+  tasks:
+    - name: Block around code that might fail
+      block:
+        - name: Print message about block block
+          ansible.builtin.debug:
+            msg: This section of the Block/Rescue/Always Block will run one or more tasks that could break.
+
+        - name: Display Configured VLANS
+          cisco.ios.ios_command:
+            commands:
+              - show vlans
+          register: vlan_result
+          failed_when: "'No Virtual LANs configured' in vlan_result['stdout'][0]"
+          ignore_errors: "{{ error_ok }}"
+
+        - name: Print message about block block
+          ansible.builtin.debug:
+            msg: This section of the Block/Rescue/Always Block will only run if all tasks in the block section succeed.
+
+      rescue: 
+        - name: Print message about rescue block
+          ansible.builtin.debug:
+            msg: This section of the Block/Rescue/Always Block will run one or more tasks to fix things.
+
+        - name: Display Configured VLANS (If Any)
+          cisco.ios.ios_command:
+            commands:
+              - show vlans          
+
+      always: 
+
+        - name: Print message about always block
+          ansible.builtin.debug:
+            msg: This section of the Block/Rescue/Always Block will always run as long as playbook hasn't exited from fatal errors.
