@@ -12,5 +12,3 @@
           ansible.builtin.include_tasks: tasks/junos_netconf_enable.yml
         - name: Create Junos backup files
           ansible.builtin.include_tasks: tasks/junos_backup_create.yml
-
-          
