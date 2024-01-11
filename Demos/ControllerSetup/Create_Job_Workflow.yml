@@ -14,7 +14,22 @@
         controller_password: redhat
         controller_host: https://controller.lab.example.com
         validate_certs: false
+        ask_variables_on_launch: true
+        extra_vars:
+          fail_me: true
         state: present
+
+### Run Job Template for Success
+    - name: Create Run Job Template Failure Fix Step
+      ansible.controller.workflow_job_template_node:
+        organization: Red Hat Training
+        identifier: Success Step
+        workflow_job_template: "DO457 Deploy Web Demo Workflow Job Template"
+        unified_job_template: "DEMO - DO457 Cisco Switch VLAN Check - Failure Fix Playbook"
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
 
 ### Run Job Template for Fix After Failure
     - name: Create Run Job Template Failure Fix Step
@@ -42,6 +57,9 @@
         validate_certs: false
         failure_nodes:
           - Fix Step
+        success_nodes:
+          - Success Step
+
 
 ### Synchronize Inventory
     - name: Create Synchronize Inventory Source Step
