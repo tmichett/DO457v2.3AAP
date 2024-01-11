@@ -6,6 +6,10 @@
   vars: 
     error_ok: false
   tasks:
+    - name: Print message BEFORE BLOCK section of tasks
+      ansible.builtin.debug:
+        msg: This is a task that runs BEFORE the BLOCK section.
+
     - name: Block around code that might fail
       block:
         - name: Print message about block block
@@ -39,3 +43,7 @@
         - name: Print message about always block
           ansible.builtin.debug:
             msg: This section of the Block/Rescue/Always Block will always run as long as playbook hasn't exited from fatal errors.
+
+    - name: Print message AFTER BLOCK section of tasks
+      ansible.builtin.debug:
+        msg: This is a task that runs AFTER the BLOCK section.
