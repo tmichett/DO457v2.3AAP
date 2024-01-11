@@ -1,3 +1,4 @@
+---
 - name: Gather facts using the 'cisco.ios.ios_facts' module
   cisco.ios.ios_facts:
   when: ansible_network_os == 'cisco.ios.ios'
