@@ -1,0 +1,14 @@
+---
+- name: Gather and display facts for Cisco Network Devices
+  hosts: ios, workstation
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Test Connectivity using the Ping Module
+      cisco.ios.ios_ping:
+        dest: "{{ inventory_hostname }}"
+        count: 5
+      when: ansible_network_os == 'ios'
+
+    - name: Test Connectity using the Ping Module
+      ansible.builtin.ping:

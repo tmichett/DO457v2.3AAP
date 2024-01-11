@@ -1,0 +1,4 @@
+---
+# from Ansible Galaxy, using the latest version 
+collections:
+  - name: tmichett.do457_demo_collection

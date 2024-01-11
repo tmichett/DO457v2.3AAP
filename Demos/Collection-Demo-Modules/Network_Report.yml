@@ -1,0 +1,45 @@
+---
+- name: Gather facts from Cisco IOS managed nodes
+  hosts: ios
+  gather_facts: false
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+        gather_subset:
+          - all
+        gather_network_resources:
+          - vlans
+          - l3_interfaces 
+          - ntp_global
+
+- name: Gather facts from Arista EOS managed nodes
+  hosts: eos
+  gather_facts: false
+  tasks:
+    - name: Gather EOS facts
+      arista.eos.eos_facts:
+        gather_subset:
+          - all
+        gather_network_resources:
+          - vlans
+          - l3_interfaces
+          - ntp_global
+
+- name: Play to build a report
+  hosts: workstation
+  gather_facts: false
+  tasks:
+    - name: Build the report
+      ansible.builtin.include_role:
+        name: tmichett.do457_demo_collection.do457_demo_role
+
+## Opens Public Firewall on Workstation
+
+    - name: Open Firewall
+      ansible.builtin.include_role:
+        name: tmichett.do457_demo_collection.manage_firewall
+      vars:
+        fw:
+          - fw_port: 8080
+            fw_proto: tcp
+        
