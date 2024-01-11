@@ -1,0 +1,12 @@
+---
+- name: Gather and display facts for Cisco Network Devices using Imported Playbooks
+  hosts: ios
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Print message to screen
+      ansible.builtin.debug:
+        msg: This playbook is mean to import tasks.
+      run_once: true   ### NOTE - this was added as I only want the message displayed one time and not for each host in inventory.
+    - name: Import the Tasks to perform
+      ansible.builtin.import_tasks: tasks/DEMO_IOS_Info_Tasks.yml

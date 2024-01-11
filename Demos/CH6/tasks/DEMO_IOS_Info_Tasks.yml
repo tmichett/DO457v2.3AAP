@@ -1,0 +1,14 @@
+- name: Gather facts using the 'cisco.ios.ios_facts' module
+  cisco.ios.ios_facts:
+  when: ansible_network_os == 'cisco.ios.ios'
+
+- name: Grab info from commands
+  cisco.ios.ios_command:
+    commands:
+      - show version
+      - show ip int brief
+  register: ios_output
+
+- name: Show Output
+  ansible.builtin.debug: 
+    var: ios_output
