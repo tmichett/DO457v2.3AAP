@@ -5,10 +5,10 @@
   gather_facts: false
   tasks:
     - name: Test Connectivity using the Ping Module
-      tmichett.do457_demo_collection.ios_ping:
+      cisco.ios.ios_ping:
         dest: "{{ inventory_hostname }}"
         count: 5
-      when: ansible_network_os == 'cisco.ios.ios'
+      when: ansible_network_os == 'ios'
 
     - name: Test Connectity using the Ping Module
-      tmichett.do457_demo_collection.ping:
+      ansible.builtin.ping:
